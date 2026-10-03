@@ -93,17 +93,14 @@ footer{position:relative;z-index:1;text-align:center;padding:30px;color:var(--mu
 <section id="skills"><h2 class="rv"><span>Skills</span></h2>
 <div class="grid" id="sg"></div></section>
 
-<section id="projects"><h2 class="rv"><span>Projects</span> <small style="font-size:14px;color:var(--mut)">tap a card to flip</small></h2>
+<section id="projects"><h2 class="rv"><span>Projects</span> <small style="font-size:14px;color:var(--mut)">tap a card for details</small></h2>
 <div class="grid">
 <div class="fl rv" onclick="this.classList.toggle('f')"><div class="fi">
 <div class="fc glass"><h3>Personalised AI Knowledge Assistant</h3><p>Evidence-gated RAG for PDF Q&amp;A with page-cited sources.</p><span class="chip">Python</span><span class="chip">ChromaDB</span><span class="chip">BM25</span><span class="chip">Cross-Encoder</span></div>
-<div class="fc bk glass"><ul><li>Benchmarked dense, BM25, RRF and re-ranking (Hit@K, MRR…)</li><li>Evidence-sufficiency gate refuses deterministically if unsupported</li><li>Regression tests + reproducibility controls</li><li><b>Result:</b> MRR [add before → after]</li></ul><a href="https://github.com/NivanAaroh/RAG_PERSONALISED_AI" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub ↗</a></div></div></div>
+<div class="fc bk glass"><ul><li>Benchmarked dense retrieval, BM25, RRF and cross-encoder re-ranking on Hit@K, Recall@K, Precision@K and MRR</li><li>Hybrid retrieval with re-ranking improved ranking quality over dense-only</li><li>Evidence-sufficiency gate refuses to answer when support is missing</li><li>Regression tests, reproducibility controls, and measured re-ranking latency cost</li></ul><a href="https://github.com/NivanAaroh/RAG_PERSONALISED_AI" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub ↗</a></div></div></div>
 <div class="fl rv" style="--d:.15s" onclick="this.classList.toggle('f')"><div class="fi">
 <div class="fc glass"><h3>Vehicle Service Assistant</h3><p>Full-stack RAG chatbot helping technicians diagnose vehicle problems faster, grounded only in indexed documentation.</p><span class="chip">RAG</span><span class="chip">Full-stack</span><span class="chip">Vercel</span></div>
-<div class="fc bk glass"><ul><li>Answers grounded only in indexed vehicle docs</li><li>Deployed on Vercel</li><li><b>Stack:</b> [add LLM, embeddings, vector store]</li><li><b>Result:</b> [add metric]</li></ul><a href="https://github.com/NivanAaroh/BCCB-Integrated" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub ↗</a></div></div></div>
-<div class="fl rv" style="--d:.3s" onclick="this.classList.toggle('f')"><div class="fi">
-<div class="fc glass"><h3>Multi-Agent RAG (coming soon)</h3><p>LangGraph supervisor + MCP tool server on AWS.</p><span class="chip">LangGraph</span><span class="chip">MCP</span><span class="chip">FastAPI</span><span class="chip">AWS</span></div>
-<div class="fc bk glass"><p>Guardrails, streaming, Docker, tracing and evaluation results will be added once built.</p></div></div></div>
+<div class="fc bk glass"><ul><li>Answers grounded only in indexed vehicle documentation</li><li>Helps service technicians identify problems faster</li><li>Full-stack app deployed on Vercel</li></ul><a href="https://github.com/NivanAaroh/BCCB-Integrated" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub ↗</a></div></div></div>
 </div></section>
 
 <!-- CERTIFICATES (disabled for now — remove the comment markers here, the nav link, and the JS comment to re-enable)
@@ -138,10 +135,10 @@ var nm=document.getElementById('nm'),t='Nivan Aaroh';
 t.split(' ').forEach(function(w,wi){var s=document.createElement('span');s.style.display='inline-block';s.style.marginRight='.25em';
 w.split('').forEach(function(c,i){var l=document.createElement('span');l.className='l';l.textContent=c;l.style.animationDelay=(wi*.12+i*.04)+'s';s.appendChild(l)});nm.appendChild(s)});
 // Skills
-var S=[['Python & FastAPI',92,'asyncio, REST, SSE, JWT'],['LangChain / LangGraph',88,'LCEL, agents, MCP'],['RAG & Search',90,'Hybrid, RRF, re-ranking'],['Vector DBs',85,'FAISS, Chroma, pgvector'],['Fine-tuning',80,'LoRA, QLoRA, DPO'],['AWS & DevOps',78,'Bedrock, Lambda, Docker']];
+var S=[['Python & FastAPI',90,'asyncio, REST, SSE, JWT'],['LangChain / LangGraph',88,'LCEL, agents, MCP'],['RAG & Search',90,'Hybrid, RRF, re-ranking'],['Vector DBs',85,'FAISS, Chroma, pgvector'],['Fine-tuning',80,'LoRA, QLoRA, DPO'],['AWS & DevOps',75,'Bedrock, Lambda, Docker']];
 var sg=document.getElementById('sg');
 S.forEach(function(s,i){var d=document.createElement('div');d.className='glass sk rv tilt';d.style.setProperty('--d',i*.08+'s');
-d.innerHTML='<div class="ring" data-t="'+s[1]+'%" data-p="'+s[1]+'"></div><h3>'+s[0]+'</h3><small>'+s[2]+'</small><div class="bar"><i data-w="'+s[1]+'"></i></div>';sg.appendChild(d)});
+d.innerHTML='<div class="ring" data-t="'+(s[1]>=85?'Adv':'Pro')+'" data-p="'+s[1]+'"></div><h3>'+s[0]+'</h3><small>'+s[2]+'</small><div class="bar"><i data-w="'+s[1]+'"></i></div>';sg.appendChild(d)});
 /* CERTIFICATES JS (disabled)
 var cg=document.getElementById('cg');
 for(var i=1;i<=4;i++){var c=document.createElement('div');c.className='neu cert rv tilt';c.style.setProperty('--d',i*.08+'s');c.innerHTML='<div><span>🏅</span>Certificate '+i+'<br>[add title]</div>';
